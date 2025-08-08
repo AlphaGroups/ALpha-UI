@@ -135,11 +135,22 @@ import {
 // import bulkSupplyImage from '@/assets/bulk-supply.jpg';
 // import testimonialImage from '@/assets/testimonial-principal.jpg';
 
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  location: string;
+  studentsImpacted: number;
+  year: number;
+  fullDescription: string;
+};
+
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
