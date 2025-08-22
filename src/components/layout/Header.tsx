@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,10 +30,13 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold text-lg text-primary">
-              Alpha Impact Labs
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/alpha-logo.jpg"  
+              alt="Alpha Groups Logo"
+              width={60}
+              height={60}
+            />
           </Link>
 
           {/* Desktop Navigation */}
