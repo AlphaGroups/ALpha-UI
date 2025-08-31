@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,11 +25,20 @@
     // "paths": {
     //   "@/*": ["./src/*"]
     // }
-     "baseUrl": "src",   // 👈 add this
+    "baseUrl": "src", // 👈 add this
     "paths": {
-      "@/*": ["*"]      // 👈 keep like this since baseUrl points to src/
+      "@/*": [
+        "*"
+      ] // 👈 keep like this since baseUrl points to src/
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

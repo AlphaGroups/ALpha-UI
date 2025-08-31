@@ -1,51 +1,27 @@
-// import React from 'react';
-// import { Navigate } from 'react-router-dom';
+"use client";
 
-// import { useAuth } from '@/contexts/AuthContext';
-
-// interface ProtectedRouteProps {
-//   children: React.ReactNode;
-// }
-
-// const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-//   const { user, isLoading } = useAuth();
-
-//   if (isLoading) {
-//     return (
-//       <div className="min-h-screen flex items-center justify-center">
-//         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-//       </div>
-//     );
-//   }
-
-//   if (!user) {
-//     return <Navigate to="/login" replace />;
-//   }
-
-//   return <>{children}</>;
-// };
-
-// export default ProtectedRoute;
-
-'use client';
-
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // For Next.js App Router
-import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import { ReactNode, useEffect } from "react";
 
 interface ProtectedRouteProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  allowedRoles?: string[];
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+export default function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) {
   const { user, isLoading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoading && !user) {
-      router.replace('/login'); // Redirect to login if not authenticated
+    if (!isLoading) {
+      if (!user) {
+        router.replace("/lms/login"); // redirect to login
+      } else if (allowedRoles && (!user.role || !allowedRoles.includes(user.role))) {
+        router.replace("/unauthorized"); // redirect if role not allowed
+      }
     }
-  }, [user, isLoading, router]);
+  }, [user, isLoading, router, allowedRoles]);
 
   if (isLoading || !user) {
     return (
@@ -56,6 +32,4 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }
 
   return <>{children}</>;
-};
-
-export default ProtectedRoute;
+}

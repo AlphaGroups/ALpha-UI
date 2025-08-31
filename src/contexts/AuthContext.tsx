@@ -4,13 +4,20 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 interface User {
   name: string;
   email: string;
+  role?: UserRole;
+  avatar?: string;
 }
+
+// contexts/AuthContext.tsx
+export type UserRole = 'super_admin' | 'admin' | 'class_user' | 'student' | 'teacher';
+
 
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
+
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -37,14 +44,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
-    
+
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 800));
-    
+
     const adminUser = adminUsers.find(
       u => u.email === email && u.password === password
     );
-    
+
     if (adminUser) {
       const userData = { name: adminUser.name, email: adminUser.email };
       setUser(userData);
@@ -52,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsLoading(false);
       return true;
     }
-    
+
     setIsLoading(false);
     return false;
   };

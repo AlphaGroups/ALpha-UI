@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,9 +71,11 @@ const TestimonialsSection = () => {
                 </blockquote>
                 
                 <div className="flex items-center justify-center space-x-4">
-                  <img
+                  <Image
                     src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].author}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-full object-cover border-2 border-primary"
                   />
                   <div className="text-center">

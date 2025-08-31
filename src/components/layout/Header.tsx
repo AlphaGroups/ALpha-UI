@@ -32,7 +32,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/alpha-logo.jpg"  
+              src="/alpha-logo.jpg"
               alt="Alpha Groups Logo"
               width={60}
               height={60}
@@ -45,11 +45,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href)
+                className={`text-sm font-medium transition-colors hover:text-primary ${isActive(item.href)
                     ? "text-primary border-b-2 border-primary"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>
@@ -59,7 +58,7 @@ const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/login">
-             <Button size="sm" className="bg-blue-500 text-white hover:bg-blue-600">
+              <Button size="sm" className="bg-blue-500 text-white hover:bg-blue-600">
                 Login
               </Button>
             </Link>
@@ -88,11 +87,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                  isActive(item.href)
+                className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive(item.href)
                     ? "text-primary bg-primary-light"
                     : "text-muted-foreground hover:text-primary hover:bg-muted"
-                }`}
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -100,8 +98,8 @@ const Header = () => {
             ))}
             <div className="pt-2 space-y-2">
               <Link href="/login">
-                <Button variant="hero" size="sm" className="w-full">
-                  Login
+                <Button  size="sm" className="w-full">
+                  LMS Login
                 </Button>
               </Link>
               <Link href="/register">

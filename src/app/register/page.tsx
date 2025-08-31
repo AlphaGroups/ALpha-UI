@@ -19,12 +19,12 @@ const RegisterPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await registerUser({ name, email, password });
+      await registerUser({ name, email, password });
       setMessage("✅ Registration successful! You can now login.");
       setName("");
       setEmail("");
       setPassword("");
-    } catch (error) {
+    } catch {
       setMessage("❌ Registration failed. Try again.");
     }
   };
