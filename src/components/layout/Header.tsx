@@ -16,7 +16,7 @@ const Header = () => {
     { name: "STEM & Robotics Labs", href: "/stem-labs" },
     { name: "Construction Works", href: "/construction" },
     { name: "Bulk Material Supply", href: "/bulk-supply" },
-    { name: "Projects", href: "/#projects" },
+    { name: "Projects", href: "/projects" },
     { name: "Contact Us", href: "/#contact" },
   ];
 
