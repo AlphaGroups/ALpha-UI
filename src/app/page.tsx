@@ -1,13 +1,13 @@
 "use client";
 
-import Header from "@/components/layout/Header";
+import Header from "@/components/Layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import VideoSection from "@/components/sections/VideoSection";
 import ServiceSection from "@/components/sections/ServiceSection";
 import ProjectsSection from "@/components/sections/ProjectSection";
 import TestimonialsSection from "@/components/sections/TestiMonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/Layout/Footer";
 
 const page = () => {
   return (

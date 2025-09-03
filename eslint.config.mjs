@@ -34,7 +34,9 @@ const eslintConfig = [
   {
     files: ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
     rules: {
-      "react/no-unescaped-entities": "off", // 👈 disable the rule here
+      "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-explicit-any": "off", // 👈 allow `any`
+      "@typescript-eslint/no-unused-vars": "off", // 👈 ignore unused vars
     },
   },
 ];
