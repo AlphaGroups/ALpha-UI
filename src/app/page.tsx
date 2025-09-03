@@ -1,6 +1,7 @@
 "use client";
 
-import Header from "@/components/Layout/Header";
+
+import Header from "@/components/Layout/Header"
 import HeroSection from "@/components/sections/HeroSection";
 import VideoSection from "@/components/sections/VideoSection";
 import ServiceSection from "@/components/sections/ServiceSection";
