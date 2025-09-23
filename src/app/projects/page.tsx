@@ -1,15 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { MapPin, Users } from "lucide-react";
 
 const ProjectsPage = () => {
@@ -57,85 +53,91 @@ const ProjectsPage = () => {
     : projects;
 
   return (
-    <section className="py-20 bg-muted/30 min-h-screen">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
-            All Projects
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore all our initiatives across India, filtered by category.
-          </p>
-        </div>
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4 lg:px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
+                All Projects
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Explore all our initiatives across India, filtered by category.
+              </p>
+            </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedFilter === category ? "default" : "outline"}
-              onClick={() =>
-                setSelectedFilter(
-                  selectedFilter === category ? null : category
-                )
-              }
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
+            {/* Filters */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedFilter === category ? "default" : "outline"}
+                  onClick={() =>
+                    setSelectedFilter(
+                      selectedFilter === category ? null : category
+                    )
+                  }
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
 
-        {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-all duration-300"
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge
-                    variant={
-                      project.status === "Completed" ? "default" : "secondary"
-                    }
-                  >
-                    {project.status}
-                  </Badge>
-                  <span className="text-sm text-muted-foreground">
-                    {project.date}
-                  </span>
-                </div>
-                <CardTitle className="text-lg font-bold text-primary group-hover:text-accent transition-colors">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4 mr-2 text-accent" />
-                    {project.location}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Users className="h-4 w-4 mr-2 text-accent" />
-                    {project.students} students impacted
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
+            {/* Projects Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProjects.map((project, index) => (
+                <Card
+                  key={index}
+                  className="group hover:shadow-lg transition-all duration-300"
+                >
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge
+                        variant={
+                          project.status === "Completed" ? "default" : "secondary"
+                        }
+                      >
+                        {project.status}
+                      </Badge>
+                      <span className="text-sm text-muted-foreground">
+                        {project.date}
+                      </span>
+                    </div>
+                    <CardTitle className="text-lg font-bold text-primary group-hover:text-accent transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3 mb-4">
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <MapPin className="h-4 w-4 mr-2 text-accent" />
+                        {project.location}
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Users className="h-4 w-4 mr-2 text-accent" />
+                        {project.students} students impacted
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Badge key={tagIndex} variant="outline" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
