@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
+const LMS_URL = process.env.NEXT_PUBLIC_LMS_URL || "/lms";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -16,7 +18,7 @@ const Header = () => {
     { name: "STEM & Robotics Labs", href: "/stem-labs" },
     { name: "Construction Works", href: "/construction" },
     { name: "Bulk Material Supply", href: "/bulk-supply" },
-    { name: "Projects", href: "/projects" },
+    { name: "Projects", href: "/#projects" },
     { name: "Contact Us", href: "/#contact" },
   ];
 
@@ -32,7 +34,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/alpha-logo.jpg"  
+              src="/alpha-logo.jpg"
               alt="Alpha Groups Logo"
               width={60}
               height={60}
@@ -58,14 +60,26 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/login">
-             <Button size="sm" className="bg-blue-500 text-white hover:bg-blue-600">
+            {/* <Link href="/login">
+              <Button
+                size="sm"
+                className="bg-blue-500 text-white hover:bg-blue-600"
+              >
                 Login
               </Button>
             </Link>
             <Link href="/register">
-              <Button size="sm" className="bg-blue-500 text-white hover:bg-blue-600">
+              <Button
+                size="sm"
+                className="bg-blue-500 text-white hover:bg-blue-600"
+              >
                 Register
+              </Button>
+            </Link> */}
+
+            <Link href={`${LMS_URL}/login`} target="_blank">
+              <Button className="w-full bg-blue-500 text-white hover:bg-blue-600">
+                LMS Login
               </Button>
             </Link>
           </div>
@@ -77,7 +91,11 @@ const Header = () => {
             className="lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
 
@@ -99,7 +117,7 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-2 space-y-2">
-              <Link href="/login">
+              {/* <Link href="/login">
                 <Button variant="hero" size="sm" className="w-full">
                   Login
                 </Button>
@@ -107,6 +125,12 @@ const Header = () => {
               <Link href="/register">
                 <Button className="w-full bg-blue-500 text-white hover:bg-blue-600">
                   Register
+                </Button>
+              </Link>*/}
+
+              <Link href={`${LMS_URL}/login`} target="_blank">
+                <Button className="w-full bg-blue-500 text-white hover:bg-blue-600">
+                  LMS Login
                 </Button>
               </Link>
             </div>

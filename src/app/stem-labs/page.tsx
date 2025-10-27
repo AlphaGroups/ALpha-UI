@@ -19,8 +19,8 @@ import {
   Target,
   CheckCircle,
 } from "lucide-react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Header from "@/components/LayoutParts/Header";
+import Footer from "@/components/LayoutParts/Footer";
 // import heroImage from "@/assets/hero-stem-robotics.jpeg"; // add your image path here
 import {
   Dialog,
