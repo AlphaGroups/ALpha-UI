@@ -20,15 +20,15 @@ const nextConfig = {
   },
 
   async rewrites() {
-    if (process.env.NODE_ENV === "development") {
-      return [
-        {
-          source: "/lms/:path*",
-          destination: "http://localhost:4000/lms/:path*",
-        },
-      ];
-    }
-    return [];
+    // Use environment variable for API URL, default to localhost in development
+    const apiBaseUrl = process.env.NEXT_PUBLIC_LMS_API_URL || "http://localhost:4000";
+    
+    return [
+      {
+        source: "/lms/:path*",
+        destination: `${apiBaseUrl}/lms/:path*`,
+      },
+    ];
   },
 
   compress: true,
