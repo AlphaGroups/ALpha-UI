@@ -15,20 +15,7 @@ const nextConfig = {
 
   env: {
     NEXT_PUBLIC_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_LMS_API_URL:
-      process.env.NEXT_PUBLIC_LMS_API_URL || "http://localhost:4000",
-  },
-
-  async rewrites() {
-    // Use environment variable for API URL, default to localhost in development
-    const apiBaseUrl = process.env.NEXT_PUBLIC_LMS_API_URL || "http://localhost:4000";
-    
-    return [
-      {
-        source: "/lms/:path*",
-        destination: `${apiBaseUrl}/lms/:path*`,
-      },
-    ];
+    NEXT_PUBLIC_LMS_API_URL: process.env.NEXT_PUBLIC_LMS_API_URL || "https://monorepo-lms.vercel.app",
   },
 
   compress: true,
