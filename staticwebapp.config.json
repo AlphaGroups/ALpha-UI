@@ -8,5 +8,18 @@
     "X-Frame-Options": "DENY",
     "Referrer-Policy": "strict-origin-when-cross-origin"
   },
-  "routes": []
+  "routes": [
+    {
+      "route": "/lms/*",
+      "allowedRoles": [ "anonymous", "authenticated" ]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "redirect": "/login"
+    }
+  },
+  "platform": {
+    "apiRuntime": "node:16"
+  }
 }
