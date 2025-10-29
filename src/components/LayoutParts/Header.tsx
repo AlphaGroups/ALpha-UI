@@ -77,7 +77,7 @@ const Header = () => {
               </Button>
             </Link> */}
 
-            <Link href={`${LMS_URL}/login`} target="_blank">
+            <Link href={"https://lively-rock-0d84cff1e.3.azurestaticapps.net/login"} target="_blank">
               <Button className="w-full bg-blue-500 text-white hover:bg-blue-600">
                 LMS Login
               </Button>
@@ -128,7 +128,7 @@ const Header = () => {
                 </Button>
               </Link>*/}
 
-              <Link href={`${LMS_URL}/login`} target="_blank">
+              <Link href={"https://lively-rock-0d84cff1e.3.azurestaticapps.net/login"} target="_blank">
                 <Button className="w-full bg-blue-500 text-white hover:bg-blue-600">
                   LMS Login
                 </Button>
